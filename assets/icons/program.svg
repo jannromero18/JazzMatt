@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" shape-rendering="crispEdges">
+  <!-- window chrome -->
+  <rect x="1" y="1" width="30" height="30" fill="#c0c0c0" stroke="#000" stroke-width="1"/>
+  <rect x="1" y="1" width="30" height="8" fill="#000080"/>
+  <!-- title bar dots -->
+  <rect x="3" y="3" width="4" height="4" fill="#c0c0c0"/>
+  <!-- heart in window -->
+  <path d="M16 24 C16 24 6 16 6 11 C6 8 8 6 11 6 C13 6 15 8 16 9 C17 8 19 6 21 6 C24 6 26 8 26 11 C26 16 16 24 16 24Z" fill="#cc0000"/>
+</svg>

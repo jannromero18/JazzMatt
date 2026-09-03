@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" shape-rendering="crispEdges">
+  <!-- bin body -->
+  <rect x="6" y="12" width="20" height="18" fill="#c0c0c0" stroke="#000" stroke-width="1"/>
+  <!-- bin lid -->
+  <rect x="4" y="9" width="24" height="4" fill="#c0c0c0" stroke="#000" stroke-width="1"/>
+  <!-- handle -->
+  <rect x="12" y="6" width="8" height="4" fill="none" stroke="#000" stroke-width="1"/>
+  <!-- vertical lines on bin -->
+  <line x1="11" y1="14" x2="11" y2="28" stroke="#808080" stroke-width="1"/>
+  <line x1="16" y1="14" x2="16" y2="28" stroke="#808080" stroke-width="1"/>
+  <line x1="21" y1="14" x2="21" y2="28" stroke="#808080" stroke-width="1"/>
+  <!-- recycling arrows -->
+  <text x="9" y="25" font-size="9" fill="#000080" font-weight="bold">♻</text>
+</svg>

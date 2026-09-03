@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A Special Message For You</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ── DESKTOP ─────────────────────────────────────────────── -->
+<div id="desktop">
+
+  <!-- Desktop Icons -->
+  <div class="icon" ondblclick="openWindow('win-ourstory')" tabindex="0" onkeydown="if(event.key==='Enter')openWindow('win-ourstory')">
+    <img src="assets/icons/notepad.svg" alt="" class="icon-img" />
+    <span class="icon-label">Our Story.txt</span>
+  </div>
+
+  <div class="icon" ondblclick="openWindow('win-photos')" tabindex="0" onkeydown="if(event.key==='Enter')openWindow('win-photos')">
+    <img src="assets/icons/photos.svg" alt="" class="icon-img" />
+    <span class="icon-label">Photos.exe</span>
+  </div>
+
+  <div class="icon" ondblclick="openWindow('win-letter')" tabindex="0" onkeydown="if(event.key==='Enter')openWindow('win-letter')">
+    <img src="assets/icons/wordpad.svg" alt="" class="icon-img" />
+    <span class="icon-label">Love Letter.doc</span>
+  </div>
+
+  <div class="icon" ondblclick="openWindow('win-congrats')" tabindex="0" onkeydown="if(event.key==='Enter')openWindow('win-congrats')">
+    <img src="assets/icons/program.svg" alt="" class="icon-img" />
+    <span class="icon-label">Congratulations!.exe</span>
+  </div>
+
+  <div class="icon" ondblclick="openWindow('win-recycle')" tabindex="0" onkeydown="if(event.key==='Enter')openWindow('win-recycle')">
+    <img src="assets/icons/recycle.svg" alt="" class="icon-img" />
+    <span class="icon-label">Recycle Bin</span>
+  </div>
+
+</div><!-- /desktop -->
+
+<!-- ── WINDOWS ─────────────────────────────────────────────── -->
+
+<!-- Our Story (Notepad) -->
+<div class="win95-window" id="win-ourstory" style="left:80px;top:60px;width:480px;">
+  <div class="title-bar" onmousedown="startDrag(event,'win-ourstory')" ontouchstart="startDragTouch(event,'win-ourstory')">
+    <div class="title-bar-left">
+      <img src="assets/icons/notepad.svg" class="title-icon" alt="" />
+      <span>Our Story.txt - Notepad</span>
+    </div>
+    <div class="title-bar-buttons">
+      <button class="tb-btn" onclick="minimizeWindow('win-ourstory')" title="Minimize">_</button>
+      <button class="tb-btn" onclick="maximizeWindow('win-ourstory')" title="Maximize">□</button>
+      <button class="tb-btn tb-close" onclick="closeWindow('win-ourstory')" title="Close">✕</button>
+    </div>
+  </div>
+  <div class="menu-bar">
+    <span>File</span><span>Edit</span><span>Search</span><span>Help</span>
+  </div>
+  <div class="win-content notepad-content">
+    <!-- ✏️  EDIT YOUR STORY HERE -->
+    <p>From the very first moment you met, everyone around you could see it—</p>
+    <p>something quiet and certain, like a song you already know the words to.</p>
+    <p>&nbsp;</p>
+    <p>You two have built something rare: a love that is warm enough to be a home.</p>
+    <p>&nbsp;</p>
+    <p>Here's to the adventure you're starting together.</p>
+    <p>May every chapter be better than the last.</p>
+    <p>&nbsp;</p>
+    <p>With so much love,</p>
+    <p>[Your Name]</p>
+  </div>
+</div>
+
+<!-- Photos Viewer -->
+<div class="win95-window" id="win-photos" style="left:200px;top:100px;width:520px;">
+  <div class="title-bar" onmousedown="startDrag(event,'win-photos')" ontouchstart="startDragTouch(event,'win-photos')">
+    <div class="title-bar-left">
+      <img src="assets/icons/photos.svg" class="title-icon" alt="" />
+      <span>Photos.exe</span>
+    </div>
+    <div class="title-bar-buttons">
+      <button class="tb-btn" onclick="minimizeWindow('win-photos')" title="Minimize">_</button>
+      <button class="tb-btn" onclick="maximizeWindow('win-photos')" title="Maximize">□</button>
+      <button class="tb-btn tb-close" onclick="closeWindow('win-photos')" title="Close">✕</button>
+    </div>
+  </div>
+  <div class="menu-bar">
+    <span>File</span><span>View</span><span>Help</span>
+  </div>
+  <div class="win-content photos-content">
+    <div class="photo-viewer">
+      <div class="photo-frame">
+        <!-- ✏️  REPLACE src VALUES with your image paths, e.g. assets/images/photo1.jpg -->
+        <img id="photo-display" src="assets/images/placeholder.svg" alt="Photo" />
+      </div>
+      <div class="photo-nav">
+        <button class="win95-btn" onclick="prevPhoto()">◄ Back</button>
+        <span id="photo-counter">1 / 3</span>
+        <button class="win95-btn" onclick="nextPhoto()">Next ►</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Love Letter (WordPad) -->
+<div class="win95-window" id="win-letter" style="left:140px;top:80px;width:560px;">
+  <div class="title-bar" onmousedown="startDrag(event,'win-letter')" ontouchstart="startDragTouch(event,'win-letter')">
+    <div class="title-bar-left">
+      <img src="assets/icons/wordpad.svg" class="title-icon" alt="" />
+      <span>Love Letter.doc - WordPad</span>
+    </div>
+    <div class="title-bar-buttons">
+      <button class="tb-btn" onclick="minimizeWindow('win-letter')" title="Minimize">_</button>
+      <button class="tb-btn" onclick="maximizeWindow('win-letter')" title="Maximize">□</button>
+      <button class="tb-btn tb-close" onclick="closeWindow('win-letter')" title="Close">✕</button>
+    </div>
+  </div>
+  <div class="menu-bar">
+    <span>File</span><span>Edit</span><span>View</span><span>Insert</span><span>Format</span><span>Help</span>
+  </div>
+  <div class="wordpad-toolbar">
+    <button class="wp-tool">B</button>
+    <button class="wp-tool"><i>I</i></button>
+    <button class="wp-tool"><u>U</u></button>
+    <span class="wp-sep"></span>
+    <button class="wp-tool">≡</button>
+    <button class="wp-tool">≡</button>
+    <button class="wp-tool">≡</button>
+  </div>
+  <div class="win-content letter-content">
+    <!-- ✏️  EDIT YOUR LETTER HERE -->
+    <p class="letter-date">August 29, 2026</p>
+    <p>&nbsp;</p>
+    <p class="letter-salutation">Dear [Name(s)],</p>
+    <p>&nbsp;</p>
+    <p>Congratulations on your wedding day. Of all the days you will share together,
+    may this one set the tone for everything that follows — full of joy, full of laughter,
+    and completely surrounded by the people who love you most.</p>
+    <p>&nbsp;</p>
+    <p>A marriage is not just a ceremony. It is a promise made quietly in the small moments —
+    in morning coffee, in inside jokes, in choosing each other again every day.</p>
+    <p>&nbsp;</p>
+    <p>You are two of the most wonderful people I know, and the fact that you found each other
+    is one of the best things I've witnessed.</p>
+    <p>&nbsp;</p>
+    <p>Here's to forever.</p>
+    <p>&nbsp;</p>
+    <p class="letter-sign">All my love,</p>
+    <p class="letter-sign">[Your Name]</p>
+  </div>
+</div>
+
+<!-- Congratulations.exe -->
+<div class="win95-window" id="win-congrats" style="left:220px;top:120px;width:420px;">
+  <div class="title-bar" onmousedown="startDrag(event,'win-congrats')" ontouchstart="startDragTouch(event,'win-congrats')">
+    <div class="title-bar-left">
+      <img src="assets/icons/program.svg" class="title-icon" alt="" />
+      <span>Congratulations!.exe</span>
+    </div>
+    <div class="title-bar-buttons">
+      <button class="tb-btn" onclick="minimizeWindow('win-congrats')" title="Minimize">_</button>
+      <button class="tb-btn" onclick="maximizeWindow('win-congrats')" title="Maximize">□</button>
+      <button class="tb-btn tb-close" onclick="closeWindow('win-congrats')" title="Close">✕</button>
+    </div>
+  </div>
+  <div class="win-content congrats-content">
+    <p class="congrats-title">Installing: LOVE.exe</p>
+    <div class="progress-bar-wrap">
+      <div class="progress-bar-fill" id="progress-fill"></div>
+    </div>
+    <p class="progress-label" id="progress-label">Starting installation...</p>
+    <div id="congrats-complete" style="display:none;">
+      <p class="congrats-msg">Installation complete! 💍</p>
+      <p class="congrats-sub">LOVE.exe has been successfully installed.<br/>No uninstall option available.</p>
+      <button class="win95-btn" onclick="launchHearts()">Launch ♥</button>
+    </div>
+  </div>
+</div>
+
+<!-- Recycle Bin (Easter Egg) -->
+<div class="win95-window win95-dialog" id="win-recycle" style="left:300px;top:200px;width:380px;">
+  <div class="title-bar" onmousedown="startDrag(event,'win-recycle')" ontouchstart="startDragTouch(event,'win-recycle')">
+    <div class="title-bar-left">
+      <img src="assets/icons/recycle.svg" class="title-icon" alt="" />
+      <span>Confirm File Delete</span>
+    </div>
+    <div class="title-bar-buttons">
+      <button class="tb-btn tb-close" onclick="closeWindow('win-recycle')" title="Close">✕</button>
+    </div>
+  </div>
+  <div class="win-content dialog-content">
+    <div class="dialog-row">
+      <img src="assets/icons/warn.svg" class="dialog-icon" alt="Warning" />
+      <p>Are you sure you want to send <strong>"This Love"</strong> to the Recycle Bin?</p>
+    </div>
+    <div class="dialog-buttons">
+      <button class="win95-btn" onclick="recycleBinNo()">No</button>
+      <button class="win95-btn" onclick="closeWindow('win-recycle')">Yes</button>
+    </div>
+    <p class="recycle-reveal" id="recycle-msg" style="display:none;">
+      Didn't think so. ❤️ Some things are simply irreplaceable.
+    </p>
+  </div>
+</div>
+
+<!-- ── TASKBAR ──────────────────────────────────────────────── -->
+<div id="taskbar">
+  <button id="start-btn" onclick="toggleStartMenu()">
+    <img src="assets/icons/win-logo.svg" alt="" class="start-logo" />
+    <strong>Start</strong>
+  </button>
+
+  <div id="taskbar-windows"></div>
+
+  <div id="taskbar-clock" title=""></div>
+</div>
+
+<!-- ── START MENU ──────────────────────────────────────────── -->
+<div id="start-menu" class="hidden">
+  <div class="start-banner">
+    <span>Windows</span><span class="start-banner-sub">95</span>
+  </div>
+  <ul class="start-list">
+    <li onclick="openWindow('win-ourstory');toggleStartMenu()">
+      <img src="assets/icons/notepad.svg" alt="" />Our Story.txt
+    </li>
+    <li onclick="openWindow('win-photos');toggleStartMenu()">
+      <img src="assets/icons/photos.svg" alt="" />Photos.exe
+    </li>
+    <li onclick="openWindow('win-letter');toggleStartMenu()">
+      <img src="assets/icons/wordpad.svg" alt="" />Love Letter.doc
+    </li>
+    <li onclick="openWindow('win-congrats');toggleStartMenu()">
+      <img src="assets/icons/program.svg" alt="" />Congratulations!.exe
+    </li>
+    <li onclick="openWindow('win-recycle');toggleStartMenu()">
+      <img src="assets/icons/recycle.svg" alt="" />Recycle Bin
+    </li>
+  </ul>
+  <div class="start-footer">
+    <button class="win95-btn start-shutdown">Shut Down...</button>
+  </div>
+</div>
+
+<!-- Particle container -->
+<div id="particles"></div>
+
+<script src="script.js"></script>
+</body>
+</html>

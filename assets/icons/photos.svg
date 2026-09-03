@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" shape-rendering="crispEdges">
+  <!-- frame -->
+  <rect x="2" y="4" width="28" height="22" fill="#fff" stroke="#000" stroke-width="1"/>
+  <rect x="3" y="5" width="26" height="20" fill="#e8e8ff"/>
+  <!-- sky -->
+  <rect x="3" y="5" width="26" height="10" fill="#87ceeb"/>
+  <!-- hills -->
+  <ellipse cx="10" cy="18" rx="8" ry="6" fill="#5a8a3c"/>
+  <ellipse cx="22" cy="19" rx="9" ry="5" fill="#4a7a2c"/>
+  <!-- sun -->
+  <circle cx="24" cy="9" r="3" fill="#ffd700"/>
+  <!-- border strip -->
+  <rect x="2" y="24" width="28" height="4" fill="#c0c0c0" stroke="#000" stroke-width="1"/>
+</svg>
