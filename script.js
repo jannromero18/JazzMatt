@@ -232,40 +232,6 @@ function runCongratsProgress() {
   setTimeout(step, 400);
 }
 
-/* ── HEART PARTICLES ─────────────────────────────────────── */
-const emojis = ['♥', '💍', '✨', '🌸', '💕'];
-
-function spawnParticle(x, y) {
-  const container = document.getElementById('particles');
-  const span = document.createElement('span');
-  span.className = 'particle';
-  span.textContent = emojis[Math.floor(Math.random() * emojis.length)];
-  span.style.left = (x + (Math.random() - 0.5) * 60) + 'px';
-  span.style.top  = y + 'px';
-  span.style.animationDuration = (1 + Math.random() * 0.6) + 's';
-  container.appendChild(span);
-  span.addEventListener('animationend', () => span.remove());
-}
-
-function launchHearts() {
-  const count = 40;
-  for (let i = 0; i < count; i++) {
-    setTimeout(() => {
-      spawnParticle(
-        Math.random() * window.innerWidth,
-        Math.random() * (window.innerHeight - 28)
-      );
-    }, i * 40);
-  }
-}
-
-/* Desktop click spawns a small burst of hearts */
-document.getElementById('desktop').addEventListener('click', e => {
-  for (let i = 0; i < 3; i++) {
-    setTimeout(() => spawnParticle(e.clientX, e.clientY), i * 80);
-  }
-});
-
 /* ── RECYCLE BIN EASTER EGG ──────────────────────────────── */
 function recycleBinNo() {
   document.getElementById('recycle-msg').style.display = 'block';
@@ -286,18 +252,118 @@ document.querySelectorAll('.win-content p, .win-content img').forEach(el => {
   revealObserver.observe(el);
 });
 
-/* ── ICON SINGLE-CLICK SELECTION ─────────────────────────── */
-document.querySelectorAll('.icon').forEach(icon => {
-  icon.addEventListener('click', () => {
-    document.querySelectorAll('.icon').forEach(i => i.classList.remove('selected'));
-    icon.classList.add('selected');
+/* ── USELESS BUTTON ──────────────────────────────────────── */
+function uselessBtn() { alert('Useless button hahahaha'); }
+
+/* ── DESKTOP ICONS: SELECT & DRAG ────────────────────────── */
+(function initIcons() {
+  const desktop = document.getElementById('desktop');
+  const desktopRect = desktop.getBoundingClientRect();
+
+  // Read ALL positions before modifying any, so flex reflow doesn't shift later icons
+  const icons = [...document.querySelectorAll('.icon')];
+  const frozenPositions = icons.map(ic => {
+    const r = ic.getBoundingClientRect();
+    return { left: r.left - desktopRect.left, top: r.top - desktopRect.top };
   });
-});
-document.getElementById('desktop').addEventListener('click', e => {
-  if (!e.target.closest('.icon')) {
+  icons.forEach((ic, i) => {
+    ic.style.position = 'absolute';
+    ic.style.left = frozenPositions[i].left + 'px';
+    ic.style.top  = frozenPositions[i].top  + 'px';
+  });
+
+  icons.forEach(icon => {
+    icon.addEventListener('mousedown', e => {
+      if (e.button !== 0) return;
+      e.stopPropagation();
+
+      // Selection: if not already selected, clear and select only this icon
+      if (!icon.classList.contains('selected')) {
+        icons.forEach(i => i.classList.remove('selected'));
+        icon.classList.add('selected');
+      }
+
+      const dragOriginX = e.clientX;
+      const dragOriginY = e.clientY;
+
+      // Snapshot starting positions of all selected icons
+      const selected = icons.filter(i => i.classList.contains('selected'));
+      const startPositions = selected.map(ic => ({ ic, left: ic.offsetLeft, top: ic.offsetTop }));
+
+      function onMove(e) {
+        const dx = e.clientX - dragOriginX;
+        const dy = e.clientY - dragOriginY;
+        startPositions.forEach(({ ic, left, top }) => {
+          const maxX = desktop.clientWidth  - ic.offsetWidth;
+          const maxY = desktop.clientHeight - ic.offsetHeight;
+          ic.style.left = Math.max(0, Math.min(left + dx, maxX)) + 'px';
+          ic.style.top  = Math.max(0, Math.min(top  + dy, maxY)) + 'px';
+        });
+      }
+
+      function onUp() {
+        document.removeEventListener('mousemove', onMove);
+        document.removeEventListener('mouseup', onUp);
+      }
+
+      document.addEventListener('mousemove', onMove);
+      document.addEventListener('mouseup', onUp);
+    });
+  });
+
+  // Deselect all when releasing click on empty desktop
+  desktop.addEventListener('mouseup', e => {
+    if (!e.target.closest('.icon')) {
+      icons.forEach(i => i.classList.remove('selected'));
+    }
+  });
+})();
+
+/* ── MARQUEE RECTANGLE SELECTOR ──────────────────────────── */
+(function initMarquee() {
+  const desktop = document.getElementById('desktop');
+  const selRect = document.getElementById('sel-rect');
+  let startX, startY, selecting = false;
+
+  desktop.addEventListener('mousedown', e => {
+    if (e.button !== 0 || e.target.closest('.icon')) return;
+    selecting = true;
+    startX = e.clientX;
+    startY = e.clientY;
+    selRect.style.display = 'block';
+    selRect.style.left   = startX + 'px';
+    selRect.style.top    = startY + 'px';
+    selRect.style.width  = '0';
+    selRect.style.height = '0';
     document.querySelectorAll('.icon').forEach(i => i.classList.remove('selected'));
-  }
-});
+  });
+
+  document.addEventListener('mousemove', e => {
+    if (!selecting) return;
+    const x = Math.min(e.clientX, startX);
+    const y = Math.min(e.clientY, startY);
+    const w = Math.abs(e.clientX - startX);
+    const h = Math.abs(e.clientY - startY);
+    selRect.style.left   = x + 'px';
+    selRect.style.top    = y + 'px';
+    selRect.style.width  = w + 'px';
+    selRect.style.height = h + 'px';
+  });
+
+  document.addEventListener('mouseup', () => {
+    if (!selecting) return;
+    selecting = false;
+    const box = selRect.getBoundingClientRect();
+    selRect.style.display = 'none';
+    document.querySelectorAll('.icon').forEach(icon => {
+      const ib = icon.getBoundingClientRect();
+      if (ib.left < box.right && ib.right > box.left &&
+          ib.top  < box.bottom && ib.bottom > box.top) {
+        icon.classList.add('selected');
+      }
+    });
+  });
+})();
 
 /* ── FOCUS WINDOW ON CLICK ───────────────────────────────── */
 document.querySelectorAll('.win95-window').forEach(w => {

@@ -54,7 +54,7 @@ html, body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 72px;
+  width: 88px;
   padding: 4px;
   cursor: pointer;
   border: 1px solid transparent;
@@ -72,8 +72,8 @@ html, body {
   color: var(--white);
 }
 .icon-img {
-  width: 32px;
-  height: 32px;
+  width: 44px;
+  height: 44px;
   image-rendering: pixelated;
 }
 .icon-label {
@@ -454,6 +454,16 @@ html, body {
   padding: 4px 8px;
 }
 .start-shutdown { width: 100%; }
+
+/* ── MARQUEE SELECTOR ───────────────────────────────────────── */
+#sel-rect {
+  display: none;
+  position: fixed;
+  border: 1px solid #000080;
+  background: rgba(0, 0, 128, 0.2);
+  pointer-events: none;
+  z-index: 99997;
+}
 
 /* ── PARTICLES ──────────────────────────────────────────────── */
 #particles {

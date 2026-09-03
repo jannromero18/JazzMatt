@@ -14,7 +14,7 @@
   <!-- Desktop Icons -->
   <div class="icon" ondblclick="openWindow('win-ourstory')" tabindex="0" onkeydown="if(event.key==='Enter')openWindow('win-ourstory')">
     <img src="assets/icons/notepad.svg" alt="" class="icon-img" />
-    <span class="icon-label">Our Story.txt</span>
+    <span class="icon-label">Card.txt</span>
   </div>
 
   <div class="icon" ondblclick="openWindow('win-photos')" tabindex="0" onkeydown="if(event.key==='Enter')openWindow('win-photos')">
@@ -29,7 +29,7 @@
 
   <div class="icon" ondblclick="openWindow('win-congrats')" tabindex="0" onkeydown="if(event.key==='Enter')openWindow('win-congrats')">
     <img src="assets/icons/program.svg" alt="" class="icon-img" />
-    <span class="icon-label">Congratulations!.exe</span>
+    <span class="icon-label">Card.exe</span>
   </div>
 
   <div class="icon" ondblclick="openWindow('win-recycle')" tabindex="0" onkeydown="if(event.key==='Enter')openWindow('win-recycle')">
@@ -42,11 +42,11 @@
 <!-- ── WINDOWS ─────────────────────────────────────────────── -->
 
 <!-- Our Story (Notepad) -->
-<div class="win95-window" id="win-ourstory" style="left:80px;top:60px;width:480px;">
+<div class="win95-window" id="win-ourstory" style="left:20px;top:30px;width:480px;">
   <div class="title-bar" onmousedown="startDrag(event,'win-ourstory')" ontouchstart="startDragTouch(event,'win-ourstory')">
     <div class="title-bar-left">
       <img src="assets/icons/notepad.svg" class="title-icon" alt="" />
-      <span>Our Story.txt - Notepad</span>
+      <span>Card.txt - Notepad</span>
     </div>
     <div class="title-bar-buttons">
       <button class="tb-btn" onclick="minimizeWindow('win-ourstory')" title="Minimize">_</button>
@@ -55,25 +55,28 @@
     </div>
   </div>
   <div class="menu-bar">
-    <span>File</span><span>Edit</span><span>Search</span><span>Help</span>
+    <span onclick="uselessBtn()">File</span><span onclick="uselessBtn()">Edit</span><span onclick="uselessBtn()">Search</span><span onclick="uselessBtn()">Help</span>
   </div>
   <div class="win-content notepad-content">
     <!-- ✏️  EDIT YOUR STORY HERE -->
-    <p>From the very first moment you met, everyone around you could see it—</p>
-    <p>something quiet and certain, like a song you already know the words to.</p>
+    <p>Dear Tjazz & Matt,</p>
+    <p>Congratulations you two! We are so happy for both of you and very excited for the future.</p>
     <p>&nbsp;</p>
-    <p>You two have built something rare: a love that is warm enough to be a home.</p>
+    <p>This website is a replacement for a real card because you probably would have thrown it out. Now you are obligated to interact with the whole thing wahahahaha.</p>
     <p>&nbsp;</p>
-    <p>Here's to the adventure you're starting together.</p>
-    <p>May every chapter be better than the last.</p>
+    <p>As for your gift,</p>
+    <p>It was too heavy to bring so you'll receive it soon!</p>
+    <p>(It's been on the dining table for more than a month now)</p>
     <p>&nbsp;</p>
-    <p>With so much love,</p>
-    <p>[Your Name]</p>
+    <p>We hope the gift reminds you that pizza is really yummy.</p>
+    <p>&nbsp;</p>
+    <p>Love,</p>
+    <p>JD & Carms</p>
   </div>
 </div>
 
 <!-- Photos Viewer -->
-<div class="win95-window" id="win-photos" style="left:200px;top:100px;width:520px;">
+<div class="win95-window" id="win-photos" style="left:540px;top:30px;width:520px;">
   <div class="title-bar" onmousedown="startDrag(event,'win-photos')" ontouchstart="startDragTouch(event,'win-photos')">
     <div class="title-bar-left">
       <img src="assets/icons/photos.svg" class="title-icon" alt="" />
@@ -86,7 +89,7 @@
     </div>
   </div>
   <div class="menu-bar">
-    <span>File</span><span>View</span><span>Help</span>
+    <span onclick="uselessBtn()">File</span><span onclick="uselessBtn()">View</span><span onclick="uselessBtn()">Help</span>
   </div>
   <div class="win-content photos-content">
     <div class="photo-viewer">
@@ -104,7 +107,7 @@
 </div>
 
 <!-- Love Letter (WordPad) -->
-<div class="win95-window" id="win-letter" style="left:140px;top:80px;width:560px;">
+<div class="win95-window" id="win-letter" style="left:20px;top:310px;width:560px;">
   <div class="title-bar" onmousedown="startDrag(event,'win-letter')" ontouchstart="startDragTouch(event,'win-letter')">
     <div class="title-bar-left">
       <img src="assets/icons/wordpad.svg" class="title-icon" alt="" />
@@ -117,16 +120,16 @@
     </div>
   </div>
   <div class="menu-bar">
-    <span>File</span><span>Edit</span><span>View</span><span>Insert</span><span>Format</span><span>Help</span>
+    <span onclick="uselessBtn()">File</span><span onclick="uselessBtn()">Edit</span><span onclick="uselessBtn()">View</span><span onclick="uselessBtn()">Insert</span><span onclick="uselessBtn()">Format</span><span onclick="uselessBtn()">Help</span>
   </div>
   <div class="wordpad-toolbar">
-    <button class="wp-tool">B</button>
-    <button class="wp-tool"><i>I</i></button>
-    <button class="wp-tool"><u>U</u></button>
+    <button class="wp-tool" onclick="uselessBtn()">B</button>
+    <button class="wp-tool" onclick="uselessBtn()"><i>I</i></button>
+    <button class="wp-tool" onclick="uselessBtn()"><u>U</u></button>
     <span class="wp-sep"></span>
-    <button class="wp-tool">≡</button>
-    <button class="wp-tool">≡</button>
-    <button class="wp-tool">≡</button>
+    <button class="wp-tool" onclick="uselessBtn()">≡</button>
+    <button class="wp-tool" onclick="uselessBtn()">≡</button>
+    <button class="wp-tool" onclick="uselessBtn()">≡</button>
   </div>
   <div class="win-content letter-content">
     <!-- ✏️  EDIT YOUR LETTER HERE -->
@@ -152,7 +155,7 @@
 </div>
 
 <!-- Congratulations.exe -->
-<div class="win95-window" id="win-congrats" style="left:220px;top:120px;width:420px;">
+<div class="win95-window" id="win-congrats" style="left:620px;top:310px;width:420px;">
   <div class="title-bar" onmousedown="startDrag(event,'win-congrats')" ontouchstart="startDragTouch(event,'win-congrats')">
     <div class="title-bar-left">
       <img src="assets/icons/program.svg" class="title-icon" alt="" />
@@ -179,7 +182,7 @@
 </div>
 
 <!-- Recycle Bin (Easter Egg) -->
-<div class="win95-window win95-dialog" id="win-recycle" style="left:300px;top:200px;width:380px;">
+<div class="win95-window win95-dialog" id="win-recycle" style="left:400px;top:200px;width:380px;">
   <div class="title-bar" onmousedown="startDrag(event,'win-recycle')" ontouchstart="startDragTouch(event,'win-recycle')">
     <div class="title-bar-left">
       <img src="assets/icons/recycle.svg" class="title-icon" alt="" />
@@ -239,12 +242,15 @@
     </li>
   </ul>
   <div class="start-footer">
-    <button class="win95-btn start-shutdown">Shut Down...</button>
+    <button class="win95-btn start-shutdown" onclick="uselessBtn()">Shut Down...</button>
   </div>
 </div>
 
 <!-- Particle container -->
 <div id="particles"></div>
+
+<!-- Marquee selector rectangle -->
+<div id="sel-rect"></div>
 
 <script src="script.js"></script>
 </body>
