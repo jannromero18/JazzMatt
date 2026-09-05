@@ -65,9 +65,9 @@ function focusWindow(id) {
 
 /* ── TASKBAR BUTTONS ─────────────────────────────────────── */
 const titles = {
-  'win-ourstory': 'Our Story.txt',
+  'win-ourstory': 'Card.txt',
   'win-photos':   'Photos.exe',
-  'win-letter':   'Love Letter.doc',
+  'win-letter':   'Recipe.doc',
   'win-error':    'Error',
 };
 
@@ -169,7 +169,6 @@ function startDragTouch(e, id) {
 }
 
 /* ── PHOTO VIEWER ────────────────────────────────────────── */
-// ✏️  Add your image paths here
 const photos = [
   'assets/images/photo1.jpg',
   'assets/images/photo2.jpg',
@@ -226,7 +225,6 @@ function uselessBtn() {
   const desktop = document.getElementById('desktop');
   const desktopRect = desktop.getBoundingClientRect();
 
-  // Read ALL positions before modifying any, so flex reflow doesn't shift later icons
   const icons = [...document.querySelectorAll('.icon')];
   const frozenPositions = icons.map(ic => {
     const r = ic.getBoundingClientRect();
@@ -243,7 +241,6 @@ function uselessBtn() {
       if (e.button !== 0) return;
       e.stopPropagation();
 
-      // Selection: if not already selected, clear and select only this icon
       if (!icon.classList.contains('selected')) {
         icons.forEach(i => i.classList.remove('selected'));
         icon.classList.add('selected');
@@ -252,7 +249,6 @@ function uselessBtn() {
       const dragOriginX = e.clientX;
       const dragOriginY = e.clientY;
 
-      // Snapshot starting positions of all selected icons
       const selected = icons.filter(i => i.classList.contains('selected'));
       const startPositions = selected.map(ic => ({ ic, left: ic.offsetLeft, top: ic.offsetTop }));
 
@@ -277,7 +273,6 @@ function uselessBtn() {
     });
   });
 
-  // Deselect all when releasing click on empty desktop
   desktop.addEventListener('mouseup', e => {
     if (!e.target.closest('.icon')) {
       icons.forEach(i => i.classList.remove('selected'));
