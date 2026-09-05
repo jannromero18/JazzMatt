@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>A Special Message For You</title>
+  <title>JazzMatt</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -24,15 +24,10 @@
 
   <div class="icon" ondblclick="openWindow('win-letter')" tabindex="0" onkeydown="if(event.key==='Enter')openWindow('win-letter')">
     <img src="assets/icons/wordpad.svg" alt="" class="icon-img" />
-    <span class="icon-label">Love Letter.doc</span>
+    <span class="icon-label">Recipe.doc</span>
   </div>
 
-  <div class="icon" ondblclick="openWindow('win-congrats')" tabindex="0" onkeydown="if(event.key==='Enter')openWindow('win-congrats')">
-    <img src="assets/icons/program.svg" alt="" class="icon-img" />
-    <span class="icon-label">Card.exe</span>
-  </div>
-
-  <div class="icon" ondblclick="openWindow('win-recycle')" tabindex="0" onkeydown="if(event.key==='Enter')openWindow('win-recycle')">
+<div class="icon" ondblclick="openWindow('win-recycle')" tabindex="0" onkeydown="if(event.key==='Enter')openWindow('win-recycle')">
     <img src="assets/icons/recycle.svg" alt="" class="icon-img" />
     <span class="icon-label">Recycle Bin</span>
   </div>
@@ -111,7 +106,7 @@
   <div class="title-bar" onmousedown="startDrag(event,'win-letter')" ontouchstart="startDragTouch(event,'win-letter')">
     <div class="title-bar-left">
       <img src="assets/icons/wordpad.svg" class="title-icon" alt="" />
-      <span>Love Letter.doc - WordPad</span>
+      <span>Recipe.doc - Word</span>
     </div>
     <div class="title-bar-buttons">
       <button class="tb-btn" onclick="minimizeWindow('win-letter')" title="Minimize">_</button>
@@ -132,52 +127,20 @@
     <button class="wp-tool" onclick="uselessBtn()">≡</button>
   </div>
   <div class="win-content letter-content">
-    <!-- ✏️  EDIT YOUR LETTER HERE -->
-    <p class="letter-date">August 29, 2026</p>
+    <p class="letter-date">Pizza Sauce Recipe</p>
     <p>&nbsp;</p>
-    <p class="letter-salutation">Dear [Name(s)],</p>
-    <p>&nbsp;</p>
-    <p>Congratulations on your wedding day. Of all the days you will share together,
-    may this one set the tone for everything that follows — full of joy, full of laughter,
-    and completely surrounded by the people who love you most.</p>
-    <p>&nbsp;</p>
-    <p>A marriage is not just a ceremony. It is a promise made quietly in the small moments —
-    in morning coffee, in inside jokes, in choosing each other again every day.</p>
-    <p>&nbsp;</p>
-    <p>You are two of the most wonderful people I know, and the fact that you found each other
-    is one of the best things I've witnessed.</p>
-    <p>&nbsp;</p>
-    <p>Here's to forever.</p>
-    <p>&nbsp;</p>
-    <p class="letter-sign">All my love,</p>
-    <p class="letter-sign">[Your Name]</p>
-  </div>
-</div>
+    <p class="letter-salutation"></p>
+    <p class="letter-body">1 can crushed tomatoes</p>
+    <p class="letter-body">hefty pinch salt</p>
+    <p class="letter-body">sum oregano</p>
+    <p class="letter-body">sum basil</p>
+    <p class="letter-body">little glug glug of olive oil</p>
 
-<!-- Congratulations.exe -->
-<div class="win95-window" id="win-congrats" style="left:620px;top:310px;width:420px;">
-  <div class="title-bar" onmousedown="startDrag(event,'win-congrats')" ontouchstart="startDragTouch(event,'win-congrats')">
-    <div class="title-bar-left">
-      <img src="assets/icons/program.svg" class="title-icon" alt="" />
-      <span>Congratulations!.exe</span>
-    </div>
-    <div class="title-bar-buttons">
-      <button class="tb-btn" onclick="minimizeWindow('win-congrats')" title="Minimize">_</button>
-      <button class="tb-btn" onclick="maximizeWindow('win-congrats')" title="Maximize">□</button>
-      <button class="tb-btn tb-close" onclick="closeWindow('win-congrats')" title="Close">✕</button>
-    </div>
-  </div>
-  <div class="win-content congrats-content">
-    <p class="congrats-title">Installing: LOVE.exe</p>
-    <div class="progress-bar-wrap">
-      <div class="progress-bar-fill" id="progress-fill"></div>
-    </div>
-    <p class="progress-label" id="progress-label">Starting installation...</p>
-    <div id="congrats-complete" style="display:none;">
-      <p class="congrats-msg">Installation complete! 💍</p>
-      <p class="congrats-sub">LOVE.exe has been successfully installed.<br/>No uninstall option available.</p>
-      <button class="win95-btn" onclick="launchHearts()">Launch ♥</button>
-    </div>
+    <p>&nbsp;</p>
+    <p class="letter-body">mix that jawn up</p>
+    <p>&nbsp;</p>
+
+    <p class="letter-sign">Enjoy</p>
   </div>
 </div>
 
@@ -234,15 +197,34 @@
     <li onclick="openWindow('win-letter');toggleStartMenu()">
       <img src="assets/icons/wordpad.svg" alt="" />Love Letter.doc
     </li>
-    <li onclick="openWindow('win-congrats');toggleStartMenu()">
-      <img src="assets/icons/program.svg" alt="" />Congratulations!.exe
-    </li>
-    <li onclick="openWindow('win-recycle');toggleStartMenu()">
+<li onclick="openWindow('win-recycle');toggleStartMenu()">
       <img src="assets/icons/recycle.svg" alt="" />Recycle Bin
     </li>
   </ul>
   <div class="start-footer">
     <button class="win95-btn start-shutdown" onclick="uselessBtn()">Shut Down...</button>
+  </div>
+</div>
+
+<!-- Error Dialog -->
+<div class="win95-window win95-dialog" id="win-error" style="left:40px;top:40px;width:320px;">
+  <div class="title-bar" onmousedown="startDrag(event,'win-error')" ontouchstart="startDragTouch(event,'win-error')">
+    <div class="title-bar-left">
+      <img src="assets/icons/warn.svg" class="title-icon" alt="" />
+      <span>Error</span>
+    </div>
+    <div class="title-bar-buttons">
+      <button class="tb-btn tb-close" onclick="closeWindow('win-error')" title="Close">✕</button>
+    </div>
+  </div>
+  <div class="win-content dialog-content">
+    <div class="dialog-row">
+      <img src="assets/icons/warn.svg" class="dialog-icon" alt="Error" />
+      <p>Useless button hahahaha</p>
+    </div>
+    <div class="dialog-buttons">
+      <button class="win95-btn" onclick="closeWindow('win-error')">OK</button>
+    </div>
   </div>
 </div>
 

@@ -12,7 +12,6 @@ function openWindow(id) {
   if (!winState[id]) winState[id] = { minimized: false, maximized: false };
   winState[id].minimized = false;
   addTaskbarBtn(id);
-  if (id === 'win-congrats') runCongratsProgress();
 }
 
 function closeWindow(id) {
@@ -198,40 +197,6 @@ function nextPhoto() {
   showPhoto(photoIndex);
 }
 
-/* ── CONGRATS PROGRESS BAR ───────────────────────────────── */
-const installSteps = [
-  [10,  'Scanning for love...'],
-  [25,  'Downloading commitment...'],
-  [42,  'Installing happiness.dll...'],
-  [60,  'Configuring inside jokes...'],
-  [75,  'Building shared future...'],
-  [90,  'Finalizing vows...'],
-  [100, 'Installation complete!'],
-];
-
-let progressRan = false;
-function runCongratsProgress() {
-  if (progressRan) return;
-  progressRan = true;
-  const fill  = document.getElementById('progress-fill');
-  const label = document.getElementById('progress-label');
-  let i = 0;
-  function step() {
-    if (i >= installSteps.length) {
-      document.getElementById('congrats-complete').style.display = 'flex';
-      document.getElementById('congrats-complete').style.flexDirection = 'column';
-      document.getElementById('congrats-complete').style.alignItems = 'center';
-      document.getElementById('congrats-complete').style.gap = '8px';
-      return;
-    }
-    const [pct, msg] = installSteps[i++];
-    fill.style.width = pct + '%';
-    label.textContent = msg;
-    setTimeout(step, 600 + Math.random() * 400);
-  }
-  setTimeout(step, 400);
-}
-
 /* ── RECYCLE BIN EASTER EGG ──────────────────────────────── */
 function recycleBinNo() {
   document.getElementById('recycle-msg').style.display = 'block';
@@ -253,7 +218,12 @@ document.querySelectorAll('.win-content p, .win-content img').forEach(el => {
 });
 
 /* ── USELESS BUTTON ──────────────────────────────────────── */
-function uselessBtn() { alert('Useless button hahahaha'); }
+function uselessBtn() {
+  const w = document.getElementById('win-error');
+  w.style.left = Math.max(0, (window.innerWidth  - 320) / 2) + 'px';
+  w.style.top  = Math.max(0, (window.innerHeight - 130) / 3) + 'px';
+  openWindow('win-error');
+}
 
 /* ── DESKTOP ICONS: SELECT & DRAG ────────────────────────── */
 (function initIcons() {
