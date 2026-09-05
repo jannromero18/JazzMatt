@@ -16,7 +16,7 @@ html, body {
   overflow: hidden;
   font-family: var(--font);
   font-size: 11px;
-  background: var(--desktop);
+  background: url('assets/images/wallpaper.jpg') center/cover no-repeat;
   color: var(--darker);
   user-select: none;
 }
