@@ -171,9 +171,11 @@ function startDragTouch(e, id) {
 /* ── PHOTO VIEWER ────────────────────────────────────────── */
 // ✏️  Add your image paths here
 const photos = [
-  'assets/images/placeholder.svg',
-  'assets/images/placeholder.svg',
-  'assets/images/placeholder.svg',
+  'assets/images/photo1.jpg',
+  'assets/images/photo2.jpg',
+  'assets/images/photo3.jpg',
+  'assets/images/photo4.jpg',
+  'assets/images/photo5.jpg',
 ];
 let photoIndex = 0;
 
