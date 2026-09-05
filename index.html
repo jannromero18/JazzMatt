@@ -27,7 +27,7 @@
     <span class="icon-label">Recipe.doc</span>
   </div>
 
-<div class="icon" ondblclick="openWindow('win-recycle')" tabindex="0" onkeydown="if(event.key==='Enter')openWindow('win-recycle')">
+<div class="icon" ondblclick="uselessBtn()" tabindex="0" onkeydown="if(event.key==='Enter')uselessBtn()">
     <img src="assets/icons/recycle.svg" alt="" class="icon-img" />
     <span class="icon-label">Recycle Bin</span>
   </div>
@@ -144,32 +144,6 @@
   </div>
 </div>
 
-<!-- Recycle Bin (Easter Egg) -->
-<div class="win95-window win95-dialog" id="win-recycle" style="left:400px;top:200px;width:380px;">
-  <div class="title-bar" onmousedown="startDrag(event,'win-recycle')" ontouchstart="startDragTouch(event,'win-recycle')">
-    <div class="title-bar-left">
-      <img src="assets/icons/recycle.svg" class="title-icon" alt="" />
-      <span>Confirm File Delete</span>
-    </div>
-    <div class="title-bar-buttons">
-      <button class="tb-btn tb-close" onclick="closeWindow('win-recycle')" title="Close">✕</button>
-    </div>
-  </div>
-  <div class="win-content dialog-content">
-    <div class="dialog-row">
-      <img src="assets/icons/warn.svg" class="dialog-icon" alt="Warning" />
-      <p>Are you sure you want to send <strong>"This Love"</strong> to the Recycle Bin?</p>
-    </div>
-    <div class="dialog-buttons">
-      <button class="win95-btn" onclick="recycleBinNo()">No</button>
-      <button class="win95-btn" onclick="closeWindow('win-recycle')">Yes</button>
-    </div>
-    <p class="recycle-reveal" id="recycle-msg" style="display:none;">
-      Didn't think so. ❤️ Some things are simply irreplaceable.
-    </p>
-  </div>
-</div>
-
 <!-- ── TASKBAR ──────────────────────────────────────────────── -->
 <div id="taskbar">
   <button id="start-btn" onclick="toggleStartMenu()">
@@ -197,7 +171,7 @@
     <li onclick="openWindow('win-letter');toggleStartMenu()">
       <img src="assets/icons/wordpad.svg" alt="" />Love Letter.doc
     </li>
-<li onclick="openWindow('win-recycle');toggleStartMenu()">
+<li onclick="uselessBtn();toggleStartMenu()">
       <img src="assets/icons/recycle.svg" alt="" />Recycle Bin
     </li>
   </ul>

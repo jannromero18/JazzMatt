@@ -68,8 +68,7 @@ const titles = {
   'win-ourstory': 'Our Story.txt',
   'win-photos':   'Photos.exe',
   'win-letter':   'Love Letter.doc',
-  'win-congrats': 'Congratulations!.exe',
-  'win-recycle':  'Recycle Bin',
+  'win-error':    'Error',
 };
 
 function addTaskbarBtn(id) {
@@ -195,11 +194,6 @@ function prevPhoto() {
 function nextPhoto() {
   photoIndex = (photoIndex + 1) % photos.length;
   showPhoto(photoIndex);
-}
-
-/* ── RECYCLE BIN EASTER EGG ──────────────────────────────── */
-function recycleBinNo() {
-  document.getElementById('recycle-msg').style.display = 'block';
 }
 
 /* ── SCROLL REVEAL (IntersectionObserver inside windows) ── */
