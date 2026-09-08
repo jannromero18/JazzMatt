@@ -197,21 +197,6 @@ function nextPhoto() {
   showPhoto(photoIndex);
 }
 
-/* ── SCROLL REVEAL (IntersectionObserver inside windows) ── */
-const revealObserver = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add('visible');
-      revealObserver.unobserve(e.target);
-    }
-  });
-}, { threshold: 0.1 });
-
-document.querySelectorAll('.win-content p, .win-content img').forEach(el => {
-  el.classList.add('reveal');
-  revealObserver.observe(el);
-});
-
 /* ── USELESS BUTTON ──────────────────────────────────────── */
 function uselessBtn() {
   const w = document.getElementById('win-error');
